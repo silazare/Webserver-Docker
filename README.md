@@ -6,7 +6,7 @@
   - Nginx latest
   - Apache http 2.4
   - MariaDB 10.3
-  - PhpAdmin
+  - PhpMyAdmin
   - PHP-FPM
 
 - Packages requirement before use:
