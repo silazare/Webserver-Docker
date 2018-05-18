@@ -15,31 +15,33 @@
 
 ### Project tree:
 
- * [httpd](./httpd)                          -- Apache configs
+ * [httpd](./httpd)				-- Apache configs
    * [httpd.conf](./httpd/httpd.conf)
- * [nginx](./nginx)                          -- Nginx configs
+ * [nginx](./nginx)				-- Nginx configs
    * [nginx.conf](./nginx/nginx.conf)
- * [src](./src)                              -- Source project files
+ * [src](./src)					-- Source project files
    * [protected](./src/protected)
      * [index.html](./src/protected/index.html)
-   * [html](./src/html)                      -- All static html files
+   * [html](./src/html)				-- All static html files
      * [index.html](./src/html/index.html)
-   * [php](./src/php)                        -- All dynamic php files
+   * [php](./src/php)				-- All dynamic php files
      * [version.php](./src/php/version.php)
      * [index.php](./src/php/index.php)
      * [error.php](./src/php/error.php)
    * [index.php](./src/index.php)
- * [webserver.sh](./webserver.sh)             -- Script to control containers
- * [logs](./logs)                             -- All apps log folder
+ * [webserver.sh](./webserver.sh)		-- Script to control containers
+ * [logs](./logs)				-- All apps log folder
    * [apache.log](./logs/apache.log)
    * [fpm-php.www.log](./logs/fpm-php.www.log)
- * [mariadb](./mariadb)                       -- Folder for DB files
- * [php](./php)                               -- PHP configs
+ * [mariadb](./mariadb)				-- Folder for DB files
+ * [php](./php)					-- PHP configs
    * [php.ini](./php/php.ini)
-   * [Dockerfile](./php/Dockerfile)           -- Docker file to build php-fpm image
+   * [Dockerfile](./php/Dockerfile)		-- Docker file to build php-fpm image
    * [www.conf](./php/www.conf)
- * [set_db_pwd.sh](./set_db_pwd.sh)           -- Script to setup DB password
- * [docker-compose.yml](./docker-compose.yml) -- Main compose file to build up all services
+ * [set_db_pwd.sh](./set_db_pwd.sh)		-- Script to setup DB password
+ * [docker-compose.yml](./docker-compose.yml)	-- Main compose file to build up all services
+
+### Usage:
 
 - Clone this repository to your folder:
 ```sh
