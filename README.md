@@ -13,7 +13,35 @@
   - Docker CE
   - Docker Compose
 
-- Project structure:
+- Project tree:
+.
+ * [httpd](./httpd)
+   * [httpd.conf](./httpd/httpd.conf)
+ * [nginx](./nginx)
+   * [nginx.conf](./nginx/nginx.conf)
+ * [src](./src)
+   * [protected](./src/protected)
+     * [index.html](./src/protected/index.html)
+   * [html](./src/html)
+     * [index.html](./src/html/index.html)
+   * [php](./src/php)
+     * [version.php](./src/php/version.php)
+     * [index.php](./src/php/index.php)
+     * [error.php](./src/php/error.php)
+   * [index.php](./src/index.php)
+ * [webserver.sh](./webserver.sh)
+ * [logs](./logs)
+   * [apache.log](./logs/apache.log)
+   * [fpm-php.www.log](./logs/fpm-php.www.log)
+ * [mariadb](./mariadb)
+ * [php](./php)
+   * [php.ini](./php/php.ini)
+   * [Dockerfile](./php/Dockerfile)
+   * [www.conf](./php/www.conf)
+ * [set_db_pwd.sh](./set_db_pwd.sh)
+ * [docker-compose.yml](./docker-compose.yml)
+ * [README.md](./README.md)
+
 ├── docker-compose.yml -- Main compose file to build up all services
 ├── httpd              -- Apache configs
 │   └── httpd.conf       
