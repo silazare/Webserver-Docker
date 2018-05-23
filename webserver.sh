@@ -4,6 +4,13 @@ function status {
 echo -e "Containers status"
 echo -e "======================="
 docker ps -a
+echo -e "======================="
+echo -e "Checking Webserver..."
+if [[ `curl -Is http://localhost | head -1 | cut -d ' ' -f2` -eq 200 ]]; then
+    echo -e "HTTP is OK"
+else
+    echo -e "HTTP is Error `curl -Is http://localhost | head -1 | cut -d ' ' -f2`"
+fi
 }
 
 function start {
