@@ -40,6 +40,8 @@
    * [www.conf](./php/www.conf)
  * [set_db_pwd.sh](./set_db_pwd.sh)		-- Script to setup DB password
  * [docker-compose.yml](./docker-compose.yml)	-- Main compose file to build up all services
+ * [ansible-playbook ubuntu-update.yml](./ansible-playbook ubuntu-update.yml)  -- Ansible playbook for Ubuntu update
+ * [hosts](./hosts)  -- Ansible hosts inventory file
 
 ### Usage:
 
@@ -65,3 +67,12 @@ $ docker ps -a
 $ curl localhost
 ```
 
+### Maintenance:
+
+For Ubuntu upgrades and reboot (if required) there is an ansible playbook.
+Need to edit inventory hosts file and execute only from control machine (not locally):
+```
+$ ansible-playbook ubuntu-update.yml -i hosts -k
+if ssh passwordless:
+$ ansible-playbook ubuntu-update.yml -i hosts
+```
