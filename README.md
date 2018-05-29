@@ -38,7 +38,6 @@
    * [php.ini](./php/php.ini)
    * [Dockerfile](./php/Dockerfile)		-- Docker file to build php-fpm image
    * [www.conf](./php/www.conf)
- * [set_db_pwd.sh](./set_db_pwd.sh)		-- Script to setup DB password
  * [docker-compose.yml](./docker-compose.yml)	-- Main compose file to build up all services
  * [ubuntu-update.yml](./ubuntu-update.yml)  -- Ansible playbook for Ubuntu update
  * [hosts](./hosts)  -- Ansible hosts inventory file
@@ -64,6 +63,8 @@ $ ADMIN_PASSWORD=admin docker-compose up --build -d
 $ docker ps -a
 $ curl localhost
 ```
+
+- Check webserver.sh control script for simple operations
 
 ### Maintenance:
 
