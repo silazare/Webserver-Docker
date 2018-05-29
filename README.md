@@ -50,15 +50,13 @@
 $ git clone https://github.com/silazare/Webserver-Docker.git
 $ cd Webserver-Docker
 
-Set MySQL password before startup:
-$ ./set_db_pwd.sh
-```
-
 - Startup docker:
 ```sh
-$ ./webserver.sh start
-or
-$ docker-compose up --build -d 
+$ ADMIN_PASSWORD=<your db pass> docker-compose up --build -d
+```
+Example:
+```
+$ ADMIN_PASSWORD=admin docker-compose up --build -d 
 ```
 
 - Check all services started up and veirfy HTTP to localhost IP:

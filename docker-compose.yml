@@ -1,27 +1,31 @@
 version: '3'
 
 services:
+
   mariadb:
     image: mariadb:10.3
+    container_name: web_mariadb
     volumes:
       - ./mariadb:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: %password%
+      MYSQL_ROOT_PASSWORD: ${ADMIN_PASSWORD:-admin}
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: web_phpmyadmin
     links:
       - mariadb:db
     ports:
       - 8765:80
     environment:
-      MYSQL_ROOT_PASSWORD: %password%
+      MYSQL_ROOT_PASSWORD: ${ADMIN_PASSWORD:-admin}
     depends_on:
       - mariadb
 
   php:
     build:
       ./php
+    container_name: web_php-fpm
     volumes:
       - ./src:/var/www/html
       - ./php/php.ini:/usr/local/etc/php/php.ini
@@ -32,6 +36,7 @@ services:
 
   apache:
     image: httpd:2.4
+    container_name: web_apache-httpd
     volumes:
       - ./src:/var/www/html
       - ./httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
@@ -41,6 +46,7 @@ services:
 
   nginx:
     image: nginx:latest
+    container_name: web_nginx
     ports:
       - 80:80
     volumes:

@@ -3,7 +3,7 @@
 function status {
 echo -e "Containers status"
 echo -e "======================="
-docker ps -a | grep webserver
+docker ps -a | grep web
 echo -e "======================="
 echo -e "Checking Webserver..."
 if [[ `curl -Is http://localhost | head -1 | cut -d ' ' -f2` -eq 200 ]]; then
@@ -13,48 +13,37 @@ else
 fi
 }
 
-function start {
-echo -e "Starting webservices..."
-echo -e "======================="
-docker-compose up --build -d
-sleep 1
-echo -e "======================="
-echo -e "Containers status"
-echo -e "======================="
-docker ps -a
-}
-
 function stop {
 echo -e "Stopping webservices..."
 echo -e "======================="
-docker stop $(docker ps -a | grep webserver | awk '{print $1}') 
+docker stop $(docker ps -a | grep web | awk '{print $1}') 
 sleep 1
 echo -e "======================="
 echo -e "Containers status"
 echo -e "======================="
-docker ps -a | grep webserver
+docker ps -a | grep web
 }
 
 function restart {
 echo -e "Restarting webservices..."
 echo -e "======================="
-docker restart $(docker ps -a | grep webserver | awk '{print $1}')
+docker restart $(docker ps -a | grep web | awk '{print $1}')
 sleep 1
 echo -e "======================="
 echo -e "Containers status"
 echo -e "======================="
-docker ps -a | grep webserver
+docker ps -a | grep web
 }
 
 function clear {
 echo -e "Clearing webservices..."
 echo -e "======================="
-docker stop $(docker ps -a | grep webserver | awk '{print $1}') && docker rm $(docker ps -a | grep webserver | awk '{print $1}')
+docker stop $(docker ps -a | grep web | awk '{print $1}') && docker rm $(docker ps -a | grep web | awk '{print $1}')
 sleep 1
 echo -e "======================="
 echo -e "Containers status"
 echo -e "======================="
-docker ps -a | grep webserver
+docker ps -a | grep web
 }
 
 function clean_images {
@@ -78,11 +67,6 @@ echo -e "clean_images - clear all old docker images"
 
 
 case "$1" in
-  start)
-  start
-  echo
-  ;;
-
   stop)
   stop
   echo
@@ -115,7 +99,7 @@ case "$1" in
 
   *)
   echo -e "Script for control web containers"
-  echo -e "Usage: $0 [start|stop|restart|status|clear|clean_images|help]"
+  echo -e "Usage: $0 [stop|restart|status|clear|clean_images|help]"
   echo
   exit 1
   ;;
