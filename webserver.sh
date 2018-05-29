@@ -3,7 +3,7 @@
 function status {
 echo -e "Containers status"
 echo -e "======================="
-docker ps -a
+docker ps -a | grep webserver
 echo -e "======================="
 echo -e "Checking Webserver..."
 if [[ `curl -Is http://localhost | head -1 | cut -d ' ' -f2` -eq 200 ]]; then
