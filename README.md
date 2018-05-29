@@ -49,7 +49,7 @@
 ```sh
 $ git clone https://github.com/silazare/Webserver-Docker.git
 $ cd Webserver-Docker
-
+```
 - Startup docker:
 ```sh
 $ ADMIN_PASSWORD=<your db pass> docker-compose up --build -d
