@@ -27,34 +27,34 @@ docker ps -a
 function stop {
 echo -e "Stopping webservices..."
 echo -e "======================="
-docker stop $(docker ps -a -q)
+docker stop $(docker ps -a | grep webserver | awk '{print $1}') 
 sleep 1
 echo -e "======================="
 echo -e "Containers status"
 echo -e "======================="
-docker ps -a
+docker ps -a | grep webserver
 }
 
 function restart {
 echo -e "Restarting webservices..."
 echo -e "======================="
-docker restart $(docker ps -a -q)
+docker restart $(docker ps -a | grep webserver | awk '{print $1}')
 sleep 1
 echo -e "======================="
 echo -e "Containers status"
 echo -e "======================="
-docker ps -a
+docker ps -a | grep webserver
 }
 
 function clear {
 echo -e "Clearing webservices..."
 echo -e "======================="
-docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
+docker stop $(docker ps -a | grep webserver | awk '{print $1}') && docker rm $(docker ps -a | grep webserver | awk '{print $1}')
 sleep 1
 echo -e "======================="
 echo -e "Containers status"
 echo -e "======================="
-docker ps -a
+docker ps -a | grep webserver
 }
 
 function clean_images {
