@@ -33,7 +33,7 @@
  * [logs](./logs)				-- All apps log folder
    * [apache.log](./logs/apache.log)
    * [fpm-php.www.log](./logs/fpm-php.www.log)
- * [mariadb](./mariadb)				-- Folder for DB files
+ * [mariadb]				-- Folder with DB files after creation
  * [php](./php)					-- PHP configs
    * [php.ini](./php/php.ini)
    * [Dockerfile](./php/Dockerfile)		-- Docker file to build php-fpm image
@@ -58,7 +58,7 @@ Example:
 $ ADMIN_PASSWORD=admin docker-compose up --build -d 
 ```
 
-- Check all services started up and veirfy HTTP to localhost IP:
+- Check all services started up and verify HTTP to localhost IP:
 ```
 $ docker ps -a
 $ curl localhost
