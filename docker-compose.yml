@@ -9,6 +9,7 @@ services:
       - ./mariadb:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${ADMIN_PASSWORD:-admin}
+    restart: unless-stopped
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -19,6 +20,7 @@ services:
       - 8765:80
     environment:
       MYSQL_ROOT_PASSWORD: ${ADMIN_PASSWORD:-admin}
+    restart: unless-stopped
     depends_on:
       - mariadb
 
@@ -31,6 +33,7 @@ services:
       - ./php/php.ini:/usr/local/etc/php/php.ini
       - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
       - ./logs/fpm-php.www.log:/var/log/fpm-php.www.log
+    restart: unless-stopped
     depends_on:
       - mariadb
 
@@ -41,6 +44,7 @@ services:
       - ./src:/var/www/html
       - ./httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ./logs/apache.log:/usr/local/apache2/logs/error_log
+    restart: unless-stopped
     depends_on:
       - php
 
@@ -53,5 +57,6 @@ services:
       - ./src:/var/www/html
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./logs:/var/log/nginx
+    restart: unless-stopped
     depends_on:
       - apache
